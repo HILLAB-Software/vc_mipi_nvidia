@@ -4,15 +4,18 @@
 /dts-v1/;
 /plugin/;
 
+
 #include <dt-bindings/tegra234-p3767-0000-common.h>
 
 #include <dt-bindings/clock/tegra234-clock.h>
 #include <dt-bindings/gpio/tegra234-gpio.h>
 
+#define CAM0_PWDN	TEGRA234_MAIN_GPIO(H, 6)
+#define CAM1_PWDN	TEGRA234_MAIN_GPIO(AC, 0)
 #define CAM_I2C_MUX	TEGRA234_AON_GPIO(CC, 3)
 
 // ------------------------------------------------------------------------------------------------
-//  Driver Configuration for NVIDIA Jetson Orin NX on Auvidea JNX42 LM
+//  Driver Configuration for NVIDIA Jetson Orin Nano/Orin NX on NVIDIA Jetson Orin Nano Developer Kit
 // ------------------------------------------------------------------------------------------------
 #define VC_MIPI_CAM_0       1   // 1: Enabled, 0: Disabled  (serial_a => CSI Port 0 => VI Stream 0)
 #define VC_MIPI_CAM_1       1   // 1: Enabled, 0: Disabled  (serial_c => CSI Port 2 => VI Stream 2)
@@ -24,7 +27,7 @@
 //  2,4 | IMX178, IMX183, IMX226, IMX250, IMX252, IMX273, IMX290, IMX327, IMX335, IMX392, 
 //      | IMX412, IMX415, IMX462, IMX565, IMX566, IMX567, IMX568, IMX900
 // -----+------------------------------------------------------------------------------------------
-#define VC_MIPI_LANES       2   // 1, 2, 4 Lanes
+#define VC_MIPI_LANES       2   // // CAMO: 1, 2 Lanes, CAM1: 1, 2, 4 Lanes
 // ------------------------------------------------------------------------------------------------
 //  Embedded Metadata Height
 // -----+------------------------------------------------------------------------------------------
@@ -49,9 +52,6 @@
 //  this repository https://github.com/VC-MIPI-modules/vc_mipi_nvidia#gstreamer-support
 // ------------------------------------------------------------------------------------------------
 
-#define CAM0_PWDN       TEGRA234_MAIN_GPIO(H, 6)
-#define CAM1_PWDN       TEGRA234_MAIN_GPIO(AC, 0)
-
 #if VC_MIPI_LANES == 1
         #define BUS_WIDTH 1
         #define NUM_LANES "1" 
@@ -71,7 +71,7 @@
         #define PIX_CLK_HZ "600000000"
 #endif
 
-#if VC_MIPI_CAM_0 == 1 && VC_MIPI_CAM_1 == 1
+#if VC_MIPI_CAM_1 == 1 && VC_MIPI_CAM_0 == 1
         #define VC_MIPI_CAMERAS 2
 #else
         #define VC_MIPI_CAMERAS 1
@@ -95,7 +95,7 @@
                                         vc_vi_port0: port@0 {
                                                 reg = <0>;
                                                 vc_vi_in0: endpoint {
-                                                        port-index = <0>;
+                                                        port-index = <1>;
                                                         bus-width = <BUS_WIDTH>;
                                                         remote-endpoint = <&vc_csi_out0>;
                                                 };
@@ -187,7 +187,7 @@
                                                                 vc_csi_chan0_port0: port@0 {
                                                                         reg = <0>;
                                                                         vc_csi_in0: endpoint@0 {
-                                                                                port-index = <0>;
+                                                                                port-index = <1>;
                                                                                 bus-width = <BUS_WIDTH>;
                                                                                 remote-endpoint = <&vc_mipi_out0>;
                                                                         };
@@ -330,7 +330,7 @@
                                                                 port@0 {
                                                                         reg = <0>;
                                                                         vc_mipi_out0: endpoint {
-                                                                                port-index = <0>;
+                                                                                port-index = <1>;
                                                                                 bus-width = <BUS_WIDTH>;
                                                                                 remote-endpoint = <&vc_csi_in0>;
                                                                         };
@@ -442,6 +442,7 @@
                                                 };
                                         };
 #endif
+
                                 };
 
                                 lens@vc_mipi {

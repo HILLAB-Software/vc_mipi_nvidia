@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024, Vision Components GmbH.  All rights reserved.
+ * Copyright (c) 2023, Vision Components GmbH.  All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,13 +16,12 @@
  */
 
 #include <dt-bindings/media/camera.h>
-#include <dt-bindings/pinctrl/pinctrl-tegra.h>
 
 // ------------------------------------------------------------------------------------------------
-//  Driver Configuration for NVIDIA Jetson Orin NX on Auvidea JNX42 LM Developer Kit
+//  Driver Configuration for NVIDIA Jetson Orin Nano on NVIDIA Jetson Orin Nano Developer Kit
 // ------------------------------------------------------------------------------------------------
-#define VC_MIPI_CAM_0       1   // 1: Enabled, 0: Disabled  (serial_a => CSI Port 0 => VI Stream 0)
-#define VC_MIPI_CAM_1       1   // 1: Enabled, 0: Disabled  (serial_c => CSI Port 2 => VI Stream 2)
+#define VC_MIPI_CAM_1       1   // 1: Enabled, 0: Disabled  (serial_a => CSI Port 0 => VI Stream 0)
+#define VC_MIPI_CAM_0       1   // 1: Enabled, 0: Disabled  (serial_c => CSI Port 2 => VI Stream 2)
 // ------------------------------------------------------------------------------------------------
 //  Supported number of lanes
 // -----+------------------------------------------------------------------------------------------
@@ -56,32 +55,29 @@
 //  this repository https://github.com/VC-MIPI-modules/vc_mipi_nvidia#gstreamer-support
 // ------------------------------------------------------------------------------------------------
 
-#define CAM0_PWDN       TEGRA234_MAIN_GPIO(H, 6)
-#define CAM1_PWDN       TEGRA234_MAIN_GPIO(AC, 0)
-
 #if VC_MIPI_LANES == 1
-    #define BUS_WIDTH 1
-    #define NUM_LANES "1" 
-    #define NUM_CSI_LANES 2
-    #define PIX_CLK_HZ "150000000"
+        #define BUS_WIDTH 1
+        #define NUM_LANES "1" 
+        #define NUM_CSI_LANES 2
+        #define PIX_CLK_HZ "150000000"
 #endif
 #if VC_MIPI_LANES == 2
-    #define BUS_WIDTH 2
-    #define NUM_LANES "2" 
-    #define NUM_CSI_LANES 4
-    #define PIX_CLK_HZ "300000000"
+        #define BUS_WIDTH 2
+        #define NUM_LANES "2" 
+        #define NUM_CSI_LANES 4
+        #define PIX_CLK_HZ "300000000"
 #endif
 #if VC_MIPI_LANES == 4
-    #define BUS_WIDTH 4
-    #define NUM_LANES "4" 
-    #define NUM_CSI_LANES 8
-    #define PIX_CLK_HZ "600000000"
+        #define BUS_WIDTH 4
+        #define NUM_LANES "4" 
+        #define NUM_CSI_LANES 8
+        #define PIX_CLK_HZ "600000000"
 #endif
 
-#if VC_MIPI_CAM_0 == 1 && VC_MIPI_CAM_1 == 1
-    #define VC_MIPI_CAMERAS 2
+#if VC_MIPI_CAM_1 == 1 && VC_MIPI_CAM_0 == 1
+        #define VC_MIPI_CAMERAS 2
 #else
-    #define VC_MIPI_CAMERAS 1
+        #define VC_MIPI_CAMERAS 1
 #endif
 
 / {
@@ -90,17 +86,17 @@
                 ports {
                         #address-cells = <1>;
                         #size-cells = <0>;
-#if VC_MIPI_CAM_0 == 1
+#if VC_MIPI_CAM_1 == 1
                         vc_vi_port0: port@0 {
                                 reg = <0>;
                                 vc_vi_in0: endpoint {
-                                        port-index = <0>;
+                                        port-index = <1>;
                                         bus-width = <BUS_WIDTH>;
                                         remote-endpoint = <&vc_csi_out0>;
                                 };
                         };
 #endif
-#if VC_MIPI_CAM_1 == 1
+#if VC_MIPI_CAM_0 == 1
                         vc_vi_port1: port@1 {
                                 reg = <1>;
                                 vc_vi_in1: endpoint {
@@ -118,16 +114,16 @@
                         num-channels = <VC_MIPI_CAMERAS>;
                         #address-cells = <1>;
                         #size-cells = <0>;
-#if VC_MIPI_CAM_0 == 1
+#if VC_MIPI_CAM_1 == 1
                         vc_csi_chan0: channel@0 {
                                 reg = <0>;
                                 ports {
                                         #address-cells = <1>;
                                         #size-cells = <0>;
-                                                vc_csi_chan0_port0: port@0 {
+                                        vc_csi_chan0_port0: port@0 {
                                                 reg = <0>;
                                                 vc_csi_in0: endpoint@0 {
-                                                        port-index = <0>;
+                                                        port-index = <1>;
                                                         bus-width = <BUS_WIDTH>;
                                                         remote-endpoint = <&vc_mipi_out0>;
                                                 };
@@ -141,8 +137,7 @@
                                 };
                         };
 #endif
-
-#if VC_MIPI_CAM_1 == 1
+#if VC_MIPI_CAM_0 == 1
                         vc_csi_chan1: channel@1 {
                                 reg = <1>;
                                 ports {
@@ -169,8 +164,8 @@
         };
 
         cam_i2cmux {
-#if VC_MIPI_CAM_0 == 1
-                i2c@0 {
+#if VC_MIPI_CAM_1 == 1
+		i2c@0 {
 #if VC_MIPI_MANUFACTURER == 1
                         vc_mipi_cam0: vc_mipi@1a {
                                 reg                     = <0x1a>;
@@ -245,7 +240,7 @@
                                         discontinuous_clk        = "no";
                                         mclk_khz                 = "24000";
                                         pix_clk_hz               = PIX_CLK_HZ;
-                                        mclk_multiplier          = "0.0";       // deprecated
+                                        mclk_multiplier          = "0.0";		// deprecated
                                         cil_settletime           = "0";
                                         dpcm_enable              = "false";
                                 };
@@ -256,7 +251,7 @@
                                         port@0 {
                                                 reg = <0>;
                                                 vc_mipi_out0: endpoint {
-                                                        port-index = <0>;
+                                                        port-index = <1>;
                                                         bus-width = <BUS_WIDTH>;
                                                         remote-endpoint = <&vc_csi_in0>;
                                                 };
@@ -264,9 +259,9 @@
                                 };
                         };
                 };
-#endif // VC_MIPI_CAM_0
+#endif // VC_MIPI_CAM_1
 
-#if VC_MIPI_CAM_1 == 1
+#if VC_MIPI_CAM_0 == 1
                 i2c@1 {
 #if VC_MIPI_MANUFACTURER == 1
                         vc_mipi_cam1: vc_mipi@1a {
@@ -287,8 +282,8 @@
                                 // ----------------------------------------------------
                                 // If you want to use GStreamer with nvarguscamerasrc
                                 // you have to adjust this settings
-                                physical_w              = "0.000";
-                                physical_h              = "0.000";
+                                physical_w              = "1.000";
+                                physical_h              = "1.000";
                                 // ----------------------------------------------------
 
                                 // This node is needed by the Tegra framework.
@@ -341,9 +336,8 @@
                                         phy_mode                 = "DPHY";
                                         discontinuous_clk        = "no";
                                         mclk_khz                 = "24000";
-
                                         pix_clk_hz               = PIX_CLK_HZ;
-                                        mclk_multiplier          = "0.0";       // deprecated
+                                        mclk_multiplier          = "0.0";		// deprecated
                                         cil_settletime           = "0";
                                         dpcm_enable              = "false";
                                 };
@@ -362,7 +356,7 @@
                                 };
                         };
                 };
-#endif // VC_MIPI_CAM_1
+#endif // VC_MIPI_CAM_0
         };
 
         lens@vc_mipi {
@@ -388,7 +382,7 @@
                 isp_bw_margin_pct = <25>;
 
                 modules {
-#if VC_MIPI_CAM_0 == 1
+#if VC_MIPI_CAM_1 == 1
                         cam_module0: module0 {
                                 badge = "jakku_front_vc_mipi";
                                 position = "front";
@@ -408,21 +402,21 @@
                                         proc-device-tree = "/proc/device-tree/lens@vc_mipi/";
                                 };
                         };
-#endif // VC_MIPI_CAM_0
-
-#if VC_MIPI_CAM_1 == 1
+#endif // VC_MIPI_CAM_1
+			
+#if VC_MIPI_CAM_0 == 1
                         cam_module1: module1 {
                                 badge = "jakku_rear_vc_mipi";
                                 position = "rear";
                                 orientation = "1";
                                 cam_module1_drivernode0: drivernode0 {
-                                pcl_id = "v4l2_sensor";
+                                        pcl_id = "v4l2_sensor";
 #if VC_MIPI_MANUFACTURER == 1
-                                devname = "vc_mipi 10-001a";
-                                proc-device-tree = "/proc/device-tree/cam_i2cmux/i2c@1/vc_mipi@1a";
+                                        devname = "vc_mipi 10-001a";
+                                        proc-device-tree = "/proc/device-tree/cam_i2cmux/i2c@1/vc_mipi@1a";
 #else
-                                devname = "vc_mipi 10-0060";
-                                proc-device-tree = "/proc/device-tree/cam_i2cmux/i2c@1/vc_mipi@60";
+                                        devname = "vc_mipi 10-0060";
+                                        proc-device-tree = "/proc/device-tree/cam_i2cmux/i2c@1/vc_mipi@60";
 #endif	
                                 };
                                 cam_module1_drivernode1: drivernode1 {
@@ -430,12 +424,14 @@
                                         proc-device-tree = "/proc/device-tree/lens@vc_mipi/";
                                 };
                         };
-#endif // VC_MIPI_CAM_1
+#endif // VC_MIPI_CAM_0
                 };
         };
 };
 
-#define CAM_I2C_MUX	TEGRA234_AON_GPIO(CC, 3)
+#define CAM0_PWDN	TEGRA234_MAIN_GPIO(H, 6)
+#define CAM1_PWDN	TEGRA234_MAIN_GPIO(AC, 0)
+#define CAM_I2C_MUX 	TEGRA234_AON_GPIO(CC, 3)
 
 / {
         cam_i2cmux {
@@ -445,7 +441,7 @@
                 #size-cells = <0>;
                 mux-gpios = <&tegra_aon_gpio CAM_I2C_MUX GPIO_ACTIVE_HIGH>;
                 i2c-parent = <&cam_i2c>;
-#if VC_MIPI_CAM_0 == 1
+#if VC_MIPI_CAM_1 == 1
                 i2c@0 {
                         status = "okay";
                         reg = <0>;
@@ -460,7 +456,7 @@
                         };
                 };
 #endif
-#if VC_MIPI_CAM_1 == 1
+#if VC_MIPI_CAM_0 == 1
                 i2c@1 {
                         status = "okay";
                         reg = <1>;
@@ -475,7 +471,7 @@
                         };
                 };
 #endif
-	};
+        };
 
         gpio@2200000 {
                 camera-control-output-low {
