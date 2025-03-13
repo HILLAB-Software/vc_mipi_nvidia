@@ -31,7 +31,7 @@
 //  2,4 | IMX178, IMX183, IMX226, IMX250, IMX252, IMX273, IMX290, IMX327, IMX335, IMX392, 
 //      | IMX412, IMX415, IMX462, IMX565, IMX566, IMX567, IMX568, IMX900
 // -----+------------------------------------------------------------------------------------------
-#define VC_MIPI_LANES       2   // 1, 2, 4 Lanes
+#define VC_MIPI_LANES       4   // 1, 2, 4 Lanes
 // ------------------------------------------------------------------------------------------------
 //  Embedded Metadata Height
 // -----+------------------------------------------------------------------------------------------
@@ -56,8 +56,36 @@
 //  this repository https://github.com/VC-MIPI-modules/vc_mipi_nvidia#gstreamer-support
 // ------------------------------------------------------------------------------------------------
 
-#define CAM0_PWDN       TEGRA234_MAIN_GPIO(H, 6)
-#define CAM1_PWDN       TEGRA234_MAIN_GPIO(AC, 0)
+//#########################################################################
+//            _                 ___
+//           [U]               [USB]     ___               JNX42 LM
+//           [S]      ____     [===]    [ETH]    _         Rear view
+//__<usb>____[B]_____[HDMI]____[USB]____[''']___[o]__
+//===================================================      Revision 1
+//                    [*]        [*]     [*]               
+//                   Reset      F-Rec    Pwr               Buttons with
+//                                                         Force Recovery
+//#########################################################################
+//            _                 ___
+//           [U]               [USB]     ___               JNX42 LM
+//           [S]      ____     [===]    [ETH]    _         Rear view
+//__<usb>____[B]_____[HDMI]____[USB]____[''']___[o]__
+//===================================================      Revision >= 2
+//                    [*]      [...]     [*]               
+//                   Reset               Pwr               Buttons without
+//                                                         Force Recovery
+//#########################################################################
+
+// Cam0 and Cam1 Trigger pins are swapped in revision 1.0
+// Auvidea board revision 2 and upwards will be compatible with NVIDIA device tree.
+#define REVISION 1
+#if REVISION == 1
+        #define CAM0_PWDN       TEGRA234_MAIN_GPIO(AC, 0)
+        #define CAM1_PWDN       TEGRA234_MAIN_GPIO(H, 6)
+#else
+        #define CAM0_PWDN       TEGRA234_MAIN_GPIO(H, 6)
+        #define CAM1_PWDN       TEGRA234_MAIN_GPIO(AC, 0)
+#endif
 
 #if VC_MIPI_LANES == 1
     #define BUS_WIDTH 1
