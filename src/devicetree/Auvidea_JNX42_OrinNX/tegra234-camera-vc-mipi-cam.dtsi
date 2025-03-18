@@ -232,7 +232,7 @@
                                         // For applications like argus_camera, there should 
                                         // be a minimal frame rate greater than zero!
                                         min_framerate            = "100";       // 0.1mHz
-                                        max_framerate            = "49800";     // 49.8mHz for 2L08
+                                        max_framerate            = "41300";     // 41.3mHz for 2L10
                                         step_framerate           = "100";       // 0.1mHz
                                         default_framerate        = "10000";     // 10.0mHz
                                         // ----------------------------------------------------
@@ -288,7 +288,7 @@
                                         // For applications like argus_camera, there should 
                                         // be a minimal frame rate greater than zero!
                                         min_framerate            = "100";       // 0.1mHz
-                                        max_framerate            = "49800";     // 49.8mHz for 2L08
+                                        max_framerate            = "34600";     // 34.6mHz for 2L12
                                         step_framerate           = "100";       // 0.1mHz
                                         default_framerate        = "10000";     // 10.0mHz
                                         // ----------------------------------------------------
@@ -406,7 +406,7 @@
                                 // you have to adjust this settings
                                 physical_w              = "6.752";
                                 physical_h              = "5.655";
-                                
+
                                 // ----------------------------------------------------
                                 // This node is needed by the Tegra framework.
                                 // You don't have to change any settings if just want 
@@ -446,7 +446,7 @@
                                         // For applications like argus_camera, there should 
                                         // be a minimal frame rate greater than zero!
                                         min_framerate            = "100";       // 0.1mHz
-                                        max_framerate            = "49800";     // 49.8mHz for 2L08
+                                        max_framerate            = "41300";     // 41.3mHz for 2L10
                                         step_framerate           = "100";       // 0.1mHz
                                         default_framerate        = "10000";     // 10.0mHz
                                         // ----------------------------------------------------
@@ -502,7 +502,7 @@
                                         // For applications like argus_camera, there should 
                                         // be a minimal frame rate greater than zero!
                                         min_framerate            = "100";       // 0.1mHz
-                                        max_framerate            = "49800";     // 49.8mHz for 2L08
+                                        max_framerate            = "34600";     // 34.6mHz for 2L12
                                         step_framerate           = "100";       // 0.1mHz
                                         default_framerate        = "10000";     // 10.0mHz
                                         // ----------------------------------------------------
