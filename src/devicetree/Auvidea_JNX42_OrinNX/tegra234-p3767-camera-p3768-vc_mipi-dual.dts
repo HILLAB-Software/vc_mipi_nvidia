@@ -284,13 +284,11 @@
                                                                 active_t                 = "0";
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
-#if LINUX_VERSION < 500
+                                                                
                                                                 pixel_t                  = "y10";
-#else
                                                                 mode_type                = "yuv";
                                                                 pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "10";
-#endif
 
                                                                 min_gain_val             = "0";         // 0.0mdB
                                                                 max_gain_val             = "48000";     // 48.0mdB
@@ -340,13 +338,11 @@
                                                                 active_t                 = "0";
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
-#if LINUX_VERSION < 500
+                                                                
                                                                 pixel_t                  = "y12";
-#else
                                                                 mode_type                = "yuv";
                                                                 pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "12";
-#endif
 
                                                                 min_gain_val             = "0";         // 0.0mdB
                                                                 max_gain_val             = "48000";     // 48.0mdB
@@ -396,13 +392,11 @@
                                                                 active_t                 = "0";
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
-#if LINUX_VERSION < 500
+                                                                
                                                                 pixel_t                  = "gray";
-#else
                                                                 mode_type                = "yuv";
                                                                 pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "8";
-#endif
 
                                                                 min_gain_val             = "0";         // 0.0mdB
                                                                 max_gain_val             = "48000";     // 48.0mdB
@@ -498,13 +492,11 @@
                                                                 active_t                 = "0";
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
-#if LINUX_VERSION < 500
+                                                                
                                                                 pixel_t                  = "y10";
-#else
                                                                 mode_type                = "yuv";
                                                                 pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "10";
-#endif
 
                                                                 min_gain_val             = "0";         // 0.0mdB
                                                                 max_gain_val             = "48000";     // 48.0mdB
@@ -554,13 +546,11 @@
                                                                 active_t                 = "0";
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
-#if LINUX_VERSION < 500
+
                                                                 pixel_t                  = "y12";
-#else
                                                                 mode_type                = "yuv";
                                                                 pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "12";
-#endif
 
                                                                 min_gain_val             = "0";         // 0.0mdB
                                                                 max_gain_val             = "48000";     // 48.0mdB
@@ -610,13 +600,11 @@
                                                                 active_t                 = "0";
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
-#if LINUX_VERSION < 500
+                                                                
                                                                 pixel_t                  = "gray";
-#else
                                                                 mode_type                = "yuv";
                                                                 pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "8";
-#endif
 
                                                                 min_gain_val             = "0";         // 0.0mdB
                                                                 max_gain_val             = "48000";     // 48.0mdB
