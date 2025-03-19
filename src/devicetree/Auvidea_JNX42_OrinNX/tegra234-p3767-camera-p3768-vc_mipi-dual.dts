@@ -287,8 +287,8 @@
 #if LINUX_VERSION < 500
                                                                 pixel_t                  = "y10";
 #else
-                                                                mode_type                = "bayer";
-                                                                pixel_phase              = "rggb";
+                                                                mode_type                = "yuv";
+                                                                pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "10";
 #endif
 
@@ -343,8 +343,8 @@
 #if LINUX_VERSION < 500
                                                                 pixel_t                  = "y12";
 #else
-                                                                mode_type                = "bayer";
-                                                                pixel_phase              = "rggb";
+                                                                mode_type                = "yuv";
+                                                                pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "12";
 #endif
 
@@ -399,8 +399,8 @@
 #if LINUX_VERSION < 500
                                                                 pixel_t                  = "gray";
 #else
-                                                                mode_type                = "bayer";
-                                                                pixel_phase              = "rggb";
+                                                                mode_type                = "yuv";
+                                                                pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "8";
 #endif
 
@@ -501,8 +501,8 @@
 #if LINUX_VERSION < 500
                                                                 pixel_t                  = "y10";
 #else
-                                                                mode_type                = "bayer";
-                                                                pixel_phase              = "rggb";
+                                                                mode_type                = "yuv";
+                                                                pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "10";
 #endif
 
@@ -557,8 +557,8 @@
 #if LINUX_VERSION < 500
                                                                 pixel_t                  = "y12";
 #else
-                                                                mode_type                = "bayer";
-                                                                pixel_phase              = "rggb";
+                                                                mode_type                = "yuv";
+                                                                pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "12";
 #endif
 
@@ -613,8 +613,8 @@
 #if LINUX_VERSION < 500
                                                                 pixel_t                  = "gray";
 #else
-                                                                mode_type                = "bayer";
-                                                                pixel_phase              = "rggb";
+                                                                mode_type                = "yuv";
+                                                                pixel_phase              = "yuyv";
                                                                 csi_pixel_bit_depth      = "8";
 #endif
 
