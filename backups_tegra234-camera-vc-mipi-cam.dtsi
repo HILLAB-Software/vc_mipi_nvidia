@@ -247,7 +247,7 @@
                                         discontinuous_clk        = "no";
                                         mclk_khz                 = "24000";
                                         pix_clk_hz               = PIX_CLK_HZ;
-                                        mclk_multiplier          = "80";       // deprecated
+                                        mclk_multiplier          = "0.0";       // deprecated
                                         cil_settletime           = "0";
                                         dpcm_enable              = "false";
                                 };
@@ -301,7 +301,7 @@
                                         discontinuous_clk        = "no";
                                         mclk_khz                 = "24000";
                                         pix_clk_hz               = PIX_CLK_HZ;
-                                        mclk_multiplier          = "80";       // deprecated
+                                        mclk_multiplier          = "0.0";       // deprecated
                                         cil_settletime           = "0";
                                         dpcm_enable              = "false";
                                 };
@@ -355,7 +355,7 @@
                                         discontinuous_clk        = "no";
                                         mclk_khz                 = "24000";
                                         pix_clk_hz               = PIX_CLK_HZ;
-                                        mclk_multiplier          = "80";       // deprecated
+                                        mclk_multiplier          = "0.0";       // deprecated
                                         cil_settletime           = "0";
                                         dpcm_enable              = "false";
                                 };
@@ -455,7 +455,7 @@
                                         discontinuous_clk        = "no";
                                         mclk_khz                 = "24000";
                                         pix_clk_hz               = PIX_CLK_HZ;
-                                        mclk_multiplier          = "80";       // deprecated
+                                        mclk_multiplier          = "0.0";       // deprecated
                                         cil_settletime           = "0";
                                         dpcm_enable              = "false";
                                 };
@@ -509,7 +509,7 @@
                                         discontinuous_clk        = "no";
                                         mclk_khz                 = "24000";
                                         pix_clk_hz               = PIX_CLK_HZ;
-                                        mclk_multiplier          = "80";       // deprecated
+                                        mclk_multiplier          = "0.0";       // deprecated
                                         cil_settletime           = "0";
                                         dpcm_enable              = "false";
                                 };
@@ -563,7 +563,7 @@
                                         discontinuous_clk        = "no";
                                         mclk_khz                 = "24000";
                                         pix_clk_hz               = PIX_CLK_HZ;
-                                        mclk_multiplier          = "80";       // deprecated
+                                        mclk_multiplier          = "0.0";       // deprecated
                                         cil_settletime           = "0";
                                         dpcm_enable              = "false";
                                 };
