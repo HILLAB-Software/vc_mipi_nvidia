@@ -421,8 +421,8 @@
                                         active_h                 = "2064";
                                         
                                         pixel_t                  = "y10";
-                                        mode_type                = "yuv";
-                                        pixel_phase              = "yuyv";
+                                        mode_type                = "bayer";
+                                        pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "10";
 
                                         min_gain_val             = "0";         // 0.0mdB
@@ -475,8 +475,8 @@
                                         active_h                 = "2064";
 
                                         pixel_t                  = "y12";
-                                        mode_type                = "yuv";
-                                        pixel_phase              = "yuyv";
+                                        mode_type                = "bayer";
+                                        pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "12";
 
                                         min_gain_val             = "0";         // 0.0mdB
@@ -529,8 +529,8 @@
                                         active_h                 = "2064";
                                         
                                         pixel_t                  = "gray";
-                                        mode_type                = "yuv";
-                                        pixel_phase              = "yuyv";
+                                        mode_type                = "bayer";
+                                        pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "8";
 
                                         min_gain_val             = "0";         // 0.0mdB
