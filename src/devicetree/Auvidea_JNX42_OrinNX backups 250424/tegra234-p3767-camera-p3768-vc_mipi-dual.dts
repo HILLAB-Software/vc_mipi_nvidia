@@ -285,7 +285,7 @@
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
                                                                 
-                                                                pixel_t                  = "bayer_rggb";
+                                                                pixel_t                  = "y10";
                                                                 mode_type                = "bayer";
                                                                 pixel_phase              = "rggb";
                                                                 csi_pixel_bit_depth      = "10";
@@ -339,7 +339,7 @@
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
                                                                 
-                                                                pixel_t                  = "bayer_rggb12";
+                                                                pixel_t                  = "y12";
                                                                 mode_type                = "bayer";
                                                                 pixel_phase              = "rggb";
                                                                 csi_pixel_bit_depth      = "12";
@@ -393,7 +393,7 @@
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
                                                                 
-                                                                pixel_t                  = "bayer_rggb8";
+                                                                pixel_t                  = "gray";
                                                                 mode_type                = "bayer";
                                                                 pixel_phase              = "rggb";
                                                                 csi_pixel_bit_depth      = "8";
@@ -493,7 +493,7 @@
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
                                                                 
-                                                                pixel_t                  = "bayer_rggb";
+                                                                pixel_t                  = "y10";
                                                                 mode_type                = "bayer";
                                                                 pixel_phase              = "rggb";
                                                                 csi_pixel_bit_depth      = "10";
@@ -547,7 +547,7 @@
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
 
-                                                                pixel_t                  = "bayer_rggb12";
+                                                                pixel_t                  = "y12";
                                                                 mode_type                = "bayer";
                                                                 pixel_phase              = "rggb";
                                                                 csi_pixel_bit_depth      = "12";
@@ -601,7 +601,7 @@
                                                                 active_w                 = "2464";
                                                                 active_h                 = "2064";
                                                                 
-                                                                pixel_t                  = "bayer_rggb8";
+                                                                pixel_t                  = "gray";
                                                                 mode_type                = "bayer";
                                                                 pixel_phase              = "rggb";
                                                                 csi_pixel_bit_depth      = "8";

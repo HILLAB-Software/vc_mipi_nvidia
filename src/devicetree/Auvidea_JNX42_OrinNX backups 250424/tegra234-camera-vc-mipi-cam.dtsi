@@ -212,7 +212,7 @@
                                         active_w                 = "2464";
                                         active_h                 = "2064";
                                         
-                                        pixel_t                  = "bayer_rggb";
+                                        pixel_t                  = "y10";
                                         mode_type                = "bayer";
                                         pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "10";
@@ -266,7 +266,7 @@
                                         active_w                 = "2464";
                                         active_h                 = "2064";
 
-                                        pixel_t                  = "bayer_rggb12";
+                                        pixel_t                  = "y12";
                                         mode_type                = "bayer";
                                         pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "12";
@@ -320,7 +320,7 @@
                                         active_w                 = "2464";
                                         active_h                 = "2064";
                                         
-                                        pixel_t                  = "bayer_rggb8";
+                                        pixel_t                  = "gray";
                                         mode_type                = "bayer";
                                         pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "8";
@@ -420,7 +420,7 @@
                                         active_w                 = "2464";
                                         active_h                 = "2064";
                                         
-                                        pixel_t                  = "bayer_rggb";
+                                        pixel_t                  = "y10";
                                         mode_type                = "bayer";
                                         pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "10";
@@ -440,7 +440,7 @@
                                         min_framerate            = "100";       // 0.1mHz
                                         max_framerate            = "41300";     // 41.3mHz for 2L10
                                         step_framerate           = "100";       // 0.1mHz
-                                        default_framerate        = "41300";     // max
+                                        default_framerate        = "10000";     // 10.0mHz
                                         // ----------------------------------------------------
 
                                         gain_factor              = "1000";
@@ -474,7 +474,7 @@
                                         active_w                 = "2464";
                                         active_h                 = "2064";
 
-                                        pixel_t                  = "bayer_rggb12";
+                                        pixel_t                  = "y12";
                                         mode_type                = "bayer";
                                         pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "12";
@@ -494,7 +494,7 @@
                                         min_framerate            = "100";       // 0.1mHz
                                         max_framerate            = "34600";     // 34.6mHz for 2L12
                                         step_framerate           = "100";       // 0.1mHz
-                                        default_framerate        = "34600";     // max
+                                        default_framerate        = "10000";     // 10.0mHz
                                         // ----------------------------------------------------
 
                                         gain_factor              = "1000";
@@ -528,7 +528,7 @@
                                         active_w                 = "2464";
                                         active_h                 = "2064";
                                         
-                                        pixel_t                  = "bayer_rggb8";
+                                        pixel_t                  = "gray";
                                         mode_type                = "bayer";
                                         pixel_phase              = "rggb";
                                         csi_pixel_bit_depth      = "8";
@@ -548,7 +548,7 @@
                                         min_framerate            = "100";       // 0.1mHz
                                         max_framerate            = "49800";     // 49.8mHz for 2L08
                                         step_framerate           = "100";       // 0.1mHz
-                                        default_framerate        = "49800";     // max
+                                        default_framerate        = "10000";     // 10.0mHz
                                         // ----------------------------------------------------
 
                                         gain_factor              = "1000";
